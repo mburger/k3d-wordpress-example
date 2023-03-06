@@ -11,7 +11,7 @@
         labels:
           app.kubernetes.io/name: wordpress
           app.kubernetes.io/instance: wordpress
-          app.kubernetes.io/version: "6.1"
+          app.kubernetes.io/version: "{{ wordpress_version }}"
           app.kubernetes.io/managed-by: ansible
           app.kubernetes.io/component: server
           app.kubernetes.io/part-of: wordpress
@@ -34,7 +34,7 @@
         labels:
           app.kubernetes.io/name: wordpress
           app.kubernetes.io/instance: wordpress
-          app.kubernetes.io/version: "6.1"
+          app.kubernetes.io/version: "{{ wordpress_version }}"
           app.kubernetes.io/managed-by: ansible
           app.kubernetes.io/component: server
           app.kubernetes.io/part-of: wordpress
@@ -58,7 +58,7 @@
         labels:
           app.kubernetes.io/name: wordpress
           app.kubernetes.io/instance: wordpress
-          app.kubernetes.io/version: "6.1"
+          app.kubernetes.io/version: "{{ wordpress_version }}"
           app.kubernetes.io/managed-by: ansible
           app.kubernetes.io/component: server
           app.kubernetes.io/part-of: wordpress
@@ -74,13 +74,13 @@
             labels:
               app.kubernetes.io/name: wordpress
               app.kubernetes.io/instance: wordpress
-              app.kubernetes.io/version: "6.1"
+              app.kubernetes.io/version: "{{ wordpress_version }}"
               app.kubernetes.io/managed-by: ansible
               app.kubernetes.io/component: server
               app.kubernetes.io/part-of: wordpress
           spec:
             containers:
-            - image: wordpress:6.1-apache
+            - image: "wordpress:{{ wordpress_version }}"
               name: wordpress
               env:
               - name: WORDPRESS_DB_HOST
@@ -114,7 +114,7 @@
         labels:
           app.kubernetes.io/name: wordpress
           app.kubernetes.io/instance: wordpress
-          app.kubernetes.io/version: "6.1"
+          app.kubernetes.io/version: "{{ wordpress_version }}"
           app.kubernetes.io/managed-by: ansible
           app.kubernetes.io/component: server
           app.kubernetes.io/part-of: wordpress

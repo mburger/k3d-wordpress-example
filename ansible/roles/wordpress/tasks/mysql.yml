@@ -11,7 +11,7 @@
         labels:
           app.kubernetes.io/name: mysql
           app.kubernetes.io/instance: mysql
-          app.kubernetes.io/version: "6.1"
+          app.kubernetes.io/version: "{{ mysql_version }}"
           app.kubernetes.io/managed-by: ansible
           app.kubernetes.io/component: server
           app.kubernetes.io/part-of: wordpress
@@ -34,7 +34,7 @@
         labels:
           app.kubernetes.io/name: mysql
           app.kubernetes.io/instance: wordpress
-          app.kubernetes.io/version: "6.1"
+          app.kubernetes.io/version: "{{ mysql_version }}"
           app.kubernetes.io/managed-by: ansible
           app.kubernetes.io/component: server
           app.kubernetes.io/part-of: wordpress
@@ -57,7 +57,7 @@
         labels:
           app.kubernetes.io/name: mysql
           app.kubernetes.io/instance: mysql
-          app.kubernetes.io/version: "6.1"
+          app.kubernetes.io/version: "{{ mysql_version }}"
           app.kubernetes.io/managed-by: ansible
           app.kubernetes.io/component: server
           app.kubernetes.io/part-of: wordpress
@@ -73,13 +73,13 @@
             labels:
               app.kubernetes.io/name: mysql
               app.kubernetes.io/instance: mysql
-              app.kubernetes.io/version: "6.1"
+              app.kubernetes.io/version: "{{ mysql_version }}"
               app.kubernetes.io/managed-by: ansible
               app.kubernetes.io/component: server
               app.kubernetes.io/part-of: wordpress
           spec:
             containers:
-            - image: mysql:8
+            - image: "mysql:{{ mysql_version }}"
               name: mysql
               env:
               - name: MYSQL_ROOT_PASSWORD

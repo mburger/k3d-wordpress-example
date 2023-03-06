@@ -4,4 +4,4 @@
   roles:
     - namespaces
     - groups
-    - wordpress
+    - { role: wordpress, mysql_version: "8", wordpress_version: "6.1-apache" }
