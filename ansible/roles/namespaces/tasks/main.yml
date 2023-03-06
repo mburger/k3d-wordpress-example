@@ -1,0 +1,15 @@
+---
+- name: create the databases namespace
+  kubernetes.core.k8s:
+    name: databases
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: create the web namespace
+  kubernetes.core.k8s:
+    name: web
+    api_version: v1
+    kind: Namespace
+    state: present
+

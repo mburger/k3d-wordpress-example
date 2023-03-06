@@ -1,0 +1,53 @@
+---
+- name: create the ns databases binding
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      metadata:
+        name:  demo-webadmin-databases-binding
+        namespace: databases
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: ClusterRole
+        name: admin
+      subjects:
+        - kind: Group
+          name: webadmins
+          apiGroup: rbac.authorization.k8s.io
+
+- name: create the ns web binding
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: RoleBinding
+      metadata:
+        name:  demo-webadmin-web-binding
+        namespace: web
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: ClusterRole
+        name: admin
+      subjects:
+        - kind: Group
+          name: webadmins
+          apiGroup: rbac.authorization.k8s.io
+
+- name: create the cluster role binding
+  kubernetes.core.k8s:
+    state: present
+    definition:
+      apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRoleBinding
+      metadata:
+        name:  demo-webadmin-list-namespaces
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: ClusterRole
+        name: list-namespaces
+      subjects:
+        - kind: Group
+          name: webadmins
+          apiGroup: rbac.authorization.k8s.io
