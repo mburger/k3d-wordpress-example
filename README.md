@@ -26,3 +26,5 @@ ansible-playbook main.yml
 # simply open the site http://wordpress.tset.localho.st in your favourite browser of choice
 xdg-open wordpress.tset.localho.st
 ```
+
+when you don't need the local k3d installation anymore execute ctlptl delete -f _support/k3d.yaml to delete it again
