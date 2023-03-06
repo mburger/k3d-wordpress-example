@@ -10,6 +10,9 @@ to find your correct download
 
 either simply replace the binaries in the tools folder for yourself or place them somewhere else in your $PATH
 
+additionally make sure ansible is installed on your machine with whatever method you prefer, please see
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html for details
+
 # what do you need to do?
 
 ```
